@@ -65,16 +65,35 @@
 
         /* Hero Section */
         .hero {
-            background: white;
-            color: #1e3a8a;
+            background: linear-gradient(135deg, #651d31, #8b2348);
+            color: white;
             padding: 4rem 0;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="white" opacity="0.1"/><circle cx="80" cy="40" r="1" fill="white" opacity="0.05"/><circle cx="40" cy="80" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
         }
 
         .hero h1 {
             font-size: 3rem;
             margin-bottom: 1rem;
             font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         .hero p {
@@ -83,6 +102,7 @@
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
         }
 
         .cta-button {
@@ -94,11 +114,15 @@
             font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .cta-button:hover {
             background-color: #d97706;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
 
         /* Main Content */
@@ -115,14 +139,15 @@
         }
 
         .section h2 {
-            color: #1e3a8a;
+            color: #651d31;
             font-size: 2.5rem;
             margin-bottom: 1.5rem;
             text-align: center;
+            font-weight: 700;
         }
 
         .section h3 {
-            color: #1e3a8a;
+            color: #651d31;
             font-size: 1.8rem;
             margin-bottom: 1rem;
         }
@@ -131,6 +156,31 @@
             font-size: 1.1rem;
             margin-bottom: 1.5rem;
             text-align: justify;
+        }
+
+        /* Student Images Grid */
+        .student-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .student-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .student-image:hover {
+            transform: translateY(-5px);
+        }
+
+        .student-image img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
         }
 
         /* Services Grid */
@@ -142,14 +192,19 @@
         }
 
         .service-card {
-            background: #f8fafc;
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
             padding: 1.5rem;
             border-radius: 8px;
-            border-left: 4px solid #3b82f6;
+            border-left: 4px solid #651d31;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-3px);
         }
 
         .service-card h4 {
-            color: #1e3a8a;
+            color: #651d31;
             font-size: 1.3rem;
             margin-bottom: 0.5rem;
         }
@@ -158,27 +213,54 @@
         .dean-profile {
             display: grid;
             grid-template-columns: 1fr 2fr;
-            gap: 2rem;
+            gap: 3rem;
             align-items: center;
             margin-top: 2rem;
         }
 
+        .dean-image-container {
+            text-align: center;
+        }
+
         .dean-image {
             width: 100%;
-            height: 300px;
-            background: linear-gradient(135deg, #e5e7eb, #d1d5db);
+            max-width: 300px;
+            height: 350px;
+            object-fit: cover;
             border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #6b7280;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            margin-bottom: 1rem;
+        }
+
+        .dean-caption {
+            color: #651d31;
+            font-weight: 600;
             font-size: 1.1rem;
         }
 
         .dean-info h3 {
-            color: #1e3a8a;
+            color: #651d31;
             font-size: 2rem;
             margin-bottom: 1rem;
+        }
+
+        /* UMES Branding */
+        .umes-branding {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 2rem 0;
+            gap: 2rem;
+        }
+
+        .umes-logo {
+            max-width: 200px;
+            height: auto;
+        }
+
+        .hawk-mascot {
+            max-width: 150px;
+            height: auto;
         }
 
         /* Contact Section */
@@ -190,15 +272,17 @@
         }
 
         .contact-card {
-            background: #f8fafc;
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
             padding: 1.5rem;
             border-radius: 8px;
             text-align: center;
+            border-top: 4px solid #651d31;
         }
 
         .contact-card h4 {
-            color: #1e3a8a;
+            color: #651d31;
             margin-bottom: 0.5rem;
+            font-size: 1.2rem;
         }
 
         .contact-form {
@@ -217,7 +301,7 @@
             display: block;
             margin-bottom: 0.5rem;
             font-weight: 600;
-            color: #1e3a8a;
+            color: #651d31;
         }
 
         .form-group input,
@@ -227,6 +311,13 @@
             border: 1px solid #d1d5db;
             border-radius: 5px;
             font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #651d31;
         }
 
         .form-group textarea {
@@ -235,7 +326,7 @@
         }
 
         .submit-button {
-            background-color: #1e3a8a;
+            background-color: #651d31;
             color: white;
             padding: 12px 30px;
             border: none;
@@ -243,10 +334,12 @@
             font-size: 1.1rem;
             cursor: pointer;
             transition: background-color 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .submit-button:hover {
-            background-color: #1e40af;
+            background-color: #7d2242;
         }
 
         /* Footer */
@@ -262,6 +355,7 @@
             justify-content: center;
             gap: 2rem;
             margin-bottom: 1rem;
+            flex-wrap: wrap;
         }
 
         .footer-links a {
@@ -292,6 +386,14 @@
             .contact-info {
                 grid-template-columns: 1fr;
             }
+
+            .student-images {
+                grid-template-columns: 1fr;
+            }
+
+            .umes-branding {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -311,16 +413,51 @@
 
     <section id="home" class="hero">
         <div class="container">
-            <h1>OFFICE OF THE DEAN OF STUDENTS</h1>
-            <p>Welcome to the Office of the Dean of Students at the University of Maryland Eastern Shore (UMES)! We are here to support you on your academic journey and personal growth. At UMES, we pride ourselves on fostering a vibrant, inclusive, and supportive community where every student has the opportunity to thrive.</p>
-            <button class="cta-button">READ MORE</button>
+            <div class="hero-content">
+                <h1>OFFICE OF THE DEAN OF STUDENTS</h1>
+                <p>Welcome to the Office of the Dean of Students at the University of Maryland Eastern Shore (UMES)! We are here to support you on your academic journey and personal growth. At UMES, we pride ourselves on fostering a vibrant, inclusive, and supportive community where every student has the opportunity to thrive.</p>
+                <button class="cta-button">READ MORE</button>
+            </div>
         </div>
     </section>
 
     <main class="container">
+        <!-- Student Life Images -->
+        <section class="section">
+            <div class="student-images">
+                <div class="student-image">
+                    <img src="https://raw.githubusercontent.com/yourusername/yourrepo/main/image1.jpg" alt="Students collaborating in study group">
+                </div>
+                <div class="student-image">
+                    <img src="https://raw.githubusercontent.com/yourusername/yourrepo/main/image2.jpg" alt="Students working together outdoors">
+                </div>
+                <div class="student-image">
+                    <img src="https://raw.githubusercontent.com/yourusername/yourrepo/main/image3.jpg" alt="Students studying on campus">
+                </div>
+                <div class="student-image">
+                    <img src="https://raw.githubusercontent.com/yourusername/yourrepo/main/image4.jpg" alt="Happy student with books">
+                </div>
+            </div>
+        </section>
+
+        <!-- UMES Branding -->
+        <section class="umes-branding">
+            <img src="https://raw.githubusercontent.com/yourusername/yourrepo/main/umes-logo.png" alt="UMES Logo" class="umes-logo">
+            <img src="https://raw.githubusercontent.com/yourusername/yourrepo/main/hawk-mascot.jpg" alt="UMES Hawk Mascot" class="hawk-mascot">
+        </section>
+
         <section id="about" class="section">
             <h2>ABOUT THE DEAN OF STUDENTS OFFICE</h2>
             <p>The Dean of Students Office is dedicated to enhancing the student experience by advocating for your needs, providing resources, and promoting a culture of respect and accountability. Our mission is to empower students to succeed both in and out of the classroom while upholding the core values of UMES.</p>
+            
+            <div class="student-images">
+                <div class="student-image">
+                    <img src="https://raw.githubusercontent.com/yourusername/yourrepo/main/image7.jpg" alt="Diverse group of students">
+                </div>
+                <div class="student-image">
+                    <img src="https://raw.githubusercontent.com/yourusername/yourrepo/main/image8.jpg" alt="Students on campus">
+                </div>
+            </div>
         </section>
 
         <section id="services" class="section">
@@ -354,11 +491,9 @@
         <section id="dean" class="section">
             <h2>MEET THE DEAN OF STUDENTS</h2>
             <div class="dean-profile">
-                <div class="dean-image">
-                    <div class="image-container">
-                    <img src="" alt="Image of Dr. Simmons"><img>
-                    </div> 
-                    Dr. Jamar Simmons<br>Photo Placeholder
+                <div class="dean-image-container">
+                    <img src="https://raw.githubusercontent.com/yourusername/yourrepo/main/dr-jamar-simmons.jpg" alt="Dr. Jamar Simmons" class="dean-image">
+                    <div class="dean-caption">Dr. Jamar Simmons</div>
                 </div>
                 <div class="dean-info">
                     <h3>Dr. Jamar Simmons</h3>
